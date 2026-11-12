@@ -1,0 +1,716 @@
+/* Marko — interface in the manner of a medieval Serbian charter: crimson and gold, interlace corners, carved plaques. */
+:root{--gold:#d9b56a;--gold2:#f3dca0;--gold3:#8a6a2c;--crimson:#7a1f27;--crimson2:#a3323c;--ink:#0a1718;--teal:#10292a;--display:'Cormorant Garamond',Georgia,serif}
+
+/* ---------- buttons: carved plaques with clipped corners ---------- */
+.primary,.secondary{position:relative;font-family:var(--display);clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px);transition:filter .2s,transform .2s,box-shadow .2s}
+.primary{background:linear-gradient(180deg,#a3323c 0%,#7a1f27 55%,#5c151c 100%);color:var(--gold2);border:0;box-shadow:inset 0 0 0 1px #f3dca0aa,inset 0 0 0 4px #5c151c,inset 0 0 0 5px #d9b56a77;font-size:19px;font-weight:700;letter-spacing:1.5px;padding:16px 28px;text-shadow:0 2px 0 #3a0c10}
+.primary span{color:var(--gold2)}
+.primary:hover,.primary.pad-focus,.primary:focus-visible{filter:brightness(1.18);transform:translateX(4px);box-shadow:inset 0 0 0 1px #f3dca0,inset 0 0 0 4px #5c151c,inset 0 0 0 5px #f3dca0}
+.secondary{background:linear-gradient(180deg,#183a39,#0f2526);border:0;box-shadow:inset 0 0 0 1px #d9b56a88,inset 0 0 0 4px #0f2526,inset 0 0 0 5px #d9b56a33;color:#f1e3c0;font-size:16px;font-weight:600;letter-spacing:.6px;padding:13px 22px}
+.secondary:hover,.secondary.pad-focus,.secondary:focus-visible{background:linear-gradient(180deg,#24504c,#143433);transform:translateX(4px);box-shadow:inset 0 0 0 1px var(--gold2),inset 0 0 0 4px #143433,inset 0 0 0 5px #d9b56a88}
+.text-button{font-family:var(--display);font-size:16px!important;color:#e9d7ad!important;letter-spacing:.5px}
+.text-button:hover{color:var(--gold2)!important;text-shadow:none}
+
+/* ---------- main menu ---------- */
+#menu{background:radial-gradient(ellipse at 72% 60%,#0000 0%,#06121380 55%,#030a0bd0 100%),linear-gradient(90deg,#05121499 0%,#08181a66 40%,#0000 70%)}
+#menu .menu-copy{padding:38px 44px 30px;background:linear-gradient(160deg,#0b1d1fe6,#0b1d1fb0 70%,#0b1d1f70);box-shadow:0 30px 80px #000a,inset 0 0 0 1px #d9b56a40;
+ background-image:url(assets/ui/corner-tl.svg),url(assets/ui/corner-tr.svg),url(assets/ui/corner-bl.svg),url(assets/ui/corner-br.svg),linear-gradient(160deg,#0b1d1fe6,#0b1d1fb0 70%,#0b1d1f80);background-repeat:no-repeat;background-position:6px 6px,calc(100% - 6px) 6px,6px calc(100% - 6px),calc(100% - 6px) calc(100% - 6px),0 0;background-size:54px,54px,54px,54px,auto;width:500px}
+#menu .menu-copy h1{font-family:var(--display);font-weight:700;font-size:118px;letter-spacing:12px;margin:14px 0 6px;background:linear-gradient(100deg,#b8913f 0%,#f3dca0 30%,#fff8e0 40%,#f3dca0 50%,#b8913f 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;text-shadow:none;filter:drop-shadow(0 3px 0 #5a3c14) drop-shadow(0 10px 30px #000c);animation:shine 7s ease-in-out infinite}
+@keyframes shine{0%,100%{background-position:100% 0}50%{background-position:0 0}}
+#menu .subtitle{font-family:var(--display);font-size:17px;font-weight:700;letter-spacing:6px;color:var(--gold2)}
+#menu .subtitle span{width:60px;height:12px;background:url(assets/ui/divider.svg) center/180px 12px no-repeat}
+#menu .eyebrow{font-family:var(--display);font-size:13px;letter-spacing:5px;color:#e6c27f}
+#menu .intro{font-family:var(--display);font-size:22px;line-height:1.55;color:#eadfc4;margin:18px 0 22px}
+#menu .primary,#menu .secondary{width:100%;min-width:0;text-align:left}
+#menu .menu-links button{font-family:var(--display);font-size:15px;color:#e8d7ad}
+#menu .menu-links button:hover{color:var(--gold2);text-shadow:none}
+#menu .menu-decoration span:last-child{font-family:var(--display);font-size:13px;letter-spacing:5px}
+.menu-marko{animation:breathe 6s ease-in-out infinite;filter:drop-shadow(0 12px 25px #0b252bb0) drop-shadow(0 0 30px #ffb45a22)!important}
+@keyframes breathe{50%{transform:translateY(-6px) scale(1.01)}}
+#menu-ledger{display:flex;gap:10px;margin:16px 0 4px}
+#menu-ledger div{flex:1;text-align:center;padding:8px 4px;background:#08151688;box-shadow:inset 0 0 0 1px #d9b56a33}
+#menu-ledger b{display:block;font:700 22px var(--display);color:var(--gold2)}
+#menu-ledger small{font:10px Arial;letter-spacing:2px;color:#b9c4b4}
+#menu .embers{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+#menu .embers i{position:absolute;bottom:-10px;width:3px;height:3px;border-radius:50%;background:#ffcf7a;box-shadow:0 0 8px 2px #ff9a3a;opacity:0;animation:ember linear infinite}
+@keyframes ember{0%{transform:translate(0,0);opacity:0}10%{opacity:.9}100%{transform:translate(var(--dx),-105vh);opacity:0}}
+#menu .quote{position:absolute;right:6%;bottom:72px;max-width:360px;font:italic 17px/1.5 var(--display);color:#e9dcbd;text-align:right;text-shadow:0 2px 6px #000;z-index:2}
+#menu .quote small{display:block;font:10px Arial;letter-spacing:3px;color:#c9a96a;margin-top:6px;font-style:normal}
+
+/* ---------- modal cards: a charter with interlace corners ---------- */
+.modal{background:radial-gradient(ellipse at center,#0a1c1fcc,#030b0cf0)}
+.modal-card{position:relative;background-image:url(assets/ui/corner-tl.svg),url(assets/ui/corner-tr.svg),url(assets/ui/corner-bl.svg),url(assets/ui/corner-br.svg),linear-gradient(165deg,#1a3a39,#0f2426 60%,#0b1c1e);background-repeat:no-repeat;background-position:8px 8px,calc(100% - 8px) 8px,8px calc(100% - 8px),calc(100% - 8px) calc(100% - 8px),0 0;background-size:48px,48px,48px,48px,auto;
+ border:1px solid #d9b56a66;outline:1px solid #d9b56a22;outline-offset:-10px;box-shadow:0 40px 120px #000c,inset 0 0 60px #0007;animation:cardIn .35s cubic-bezier(.2,.9,.3,1.2)}
+@keyframes cardIn{from{opacity:0;transform:translateY(16px) scale(.97)}}
+.modal-card h2{font-family:var(--display);font-weight:700;font-size:40px;color:var(--gold2);text-shadow:0 2px 0 #3a2a10;margin:8px 0 6px}
+.modal-card h2::after{content:'';display:block;width:240px;height:16px;margin:10px 0 4px;background:url(assets/ui/divider.svg) left center/240px 16px no-repeat}
+.modal-card .eyebrow{font:700 12px var(--display)!important;letter-spacing:5px!important;color:#e6c27f!important}
+.modal-card p{font-family:var(--display);font-size:18px}
+.modal-card h3{font-family:var(--display)}
+
+/* ---------- toasts and Ravijojla's words ---------- */
+#toast{font-family:var(--display);font-size:20px;font-weight:600;background:linear-gradient(180deg,#132b2bf2,#0b1c1ef2);border:0;box-shadow:inset 0 1px 0 #d9b56a99,inset 0 -1px 0 #d9b56a99,0 10px 30px #0008;padding:12px 30px 13px;color:#f6e7c4}
+#toast::before,#toast::after{content:'✦';color:var(--gold);margin:0 12px;font-size:12px;vertical-align:middle}
+#dialogue{background:linear-gradient(90deg,#14403ce8,#0e2427ee);border:0;box-shadow:inset 0 0 0 1px #8fe0c766,0 12px 40px #0009}
+#dialogue p{font-family:var(--display);font-size:19px;font-weight:600}
+
+/* ---------- HUD ---------- */
+.hero-card{background-image:url(assets/ui/corner-tl.svg),url(assets/ui/corner-br.svg),linear-gradient(90deg,#102322f2,#10232299);background-repeat:no-repeat;background-position:3px 3px,calc(100% - 3px) calc(100% - 3px),0 0;background-size:30px,30px,auto;border:1px solid #d7bb7155}
+.hero-label{font-family:var(--display);font-size:13px!important;letter-spacing:3px!important;color:var(--gold2)}
+.meter{border-color:#d9b56a99!important}
+.quest strong{font-family:var(--display);font-size:24px;font-weight:600;color:#f6e7c4}
+.quest small{font-family:var(--display);font-size:12px;font-weight:700}
+#boss-hud h2{font-family:var(--display);font-weight:700;font-size:30px;color:var(--gold2)}
+#boss-hud small{font-family:var(--display);font-weight:700;letter-spacing:6px}
+.boss-meter{border-color:#d9b56aaa!important;box-shadow:0 0 18px #a3323c55}
+.boss-guard{height:5px;margin:4px auto 0;width:62%;background:#0b1413cc;border:1px solid #9fb4c466;border-radius:3px;overflow:hidden}.boss-guard i{display:block;height:100%;width:100%;background:linear-gradient(90deg,#8fa6b8,#e6eef5);transition:width .12s linear}.boss-guard.broken i{background:#ffcf6a}
+
+/* ---------- the opening title of a pohod ---------- */
+#title-card{position:absolute;left:50%;top:34%;transform:translate(-50%,-50%);text-align:center;pointer-events:none;z-index:5}
+#title-card small{display:block;font:700 15px var(--display);letter-spacing:9px;color:#e6c27f}
+#title-card h1{font:700 64px var(--display);margin:6px 0;color:var(--gold2);text-shadow:0 3px 0 #3a2a10,0 0 40px #000;letter-spacing:2px}
+#title-card i{display:block;margin:0 auto;width:360px;height:24px;background:url(assets/ui/divider.svg) center/360px 24px no-repeat}
+#title-card p{font:italic 20px var(--display);color:#efe2c2;text-shadow:0 2px 8px #000;margin:8px 0 0}
+#title-card.show{animation:titleIn 3.2s ease forwards}
+@keyframes titleIn{0%{opacity:0;transform:translate(-50%,-40%) scale(1.05);letter-spacing:6px}14%{opacity:1;transform:translate(-50%,-50%) scale(1)}78%{opacity:1}100%{opacity:0;transform:translate(-50%,-56%)}}
+
+/* ---------- the map of pohodi ---------- */
+#levels .modal-card.lore{width:min(1120px,100%);padding:28px 30px}
+.pohod-map{position:relative;display:grid;grid-template-columns:1fr 320px;gap:18px;margin:12px 0}
+.map-field{position:relative;height:430px;border:1px solid #d9b56a55;background:radial-gradient(ellipse at 30% 30%,#e8d6a8 0%,#d8c08a 45%,#b89a5e 100%);box-shadow:inset 0 0 60px #6a4a1a99,inset 0 0 0 6px #e9d9b444;overflow:hidden}
+.map-field::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(35deg,#0000 0 22px,#5a3c1408 22px 23px),radial-gradient(circle at 80% 70%,#5a3c1422,#0000 40%);pointer-events:none}
+.map-field svg.road{position:absolute;inset:0;width:100%;height:100%}
+.map-title{position:absolute;left:16px;top:10px;font:italic 700 20px var(--display);color:#5a3c14;letter-spacing:1px}
+.map-node{position:absolute;width:68px;height:68px;margin:-34px 0 0 -34px;border-radius:50%;padding:0;border:3px solid #8a6a2c;background:#3a2a14 center/cover no-repeat;box-shadow:0 4px 10px #0008,inset 0 0 0 2px #f3dca0aa;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.map-node span{position:absolute;left:50%;top:-12px;transform:translateX(-50%);font:700 14px var(--display);color:#3a2610;background:#f3dca0;border:1px solid #8a6a2c;border-radius:10px;padding:0 7px;line-height:18px}
+.map-node em{position:absolute;left:50%;bottom:-20px;transform:translateX(-50%);font-style:normal;font-size:13px;color:#8a5a10;letter-spacing:1px;white-space:nowrap;text-shadow:0 1px 0 #f3dca0}
+.map-node:hover,.map-node.pad-focus,.map-node:focus-visible,.map-node.sel{transform:scale(1.14);box-shadow:0 0 0 3px #f3dca0,0 0 26px #ffcf6a,0 6px 14px #0009;outline:none}
+.map-node.done{border-color:#d9b56a}
+.map-node.next{animation:nodePulse 1.6s ease-in-out infinite}
+@keyframes nodePulse{50%{box-shadow:0 0 0 4px #f3dca0,0 0 30px #ff9a3a,0 6px 14px #0009}}
+.map-node:disabled{filter:grayscale(1) brightness(.55);cursor:default;transform:none}
+.map-node:disabled::after{content:'';position:absolute;inset:18px;background:url(assets/ui/lock.svg) center/contain no-repeat}
+.map-detail{border:1px solid #d9b56a55;background:#0b1c1ecc;display:flex;flex-direction:column}
+.map-detail .vista{height:150px;background:#132 center/cover no-repeat;box-shadow:inset 0 -40px 40px #0b1c1e}
+.map-detail .info{padding:12px 16px 14px;flex:1;display:flex;flex-direction:column}
+.map-detail h3{font:700 26px var(--display);color:var(--gold2);margin:2px 0 4px}
+.map-detail .stars{font-size:22px;color:#ffd98a;letter-spacing:4px;margin:2px 0}
+.map-detail .stars small{display:block;font:10px Arial;letter-spacing:1px;color:#a9b9ad}
+.map-detail p{font:16px/1.4 var(--display);color:#d5dccb;margin:6px 0}
+.map-detail .reward{color:#ffe39a}
+.map-detail .primary{margin-top:auto;width:100%;min-width:0}
+@media(max-width:900px){.pohod-map{grid-template-columns:1fr}.map-field{height:340px}.map-node{width:52px;height:52px;margin:-26px 0 0 -26px}.map-detail .vista{height:100px}}
+
+/* ---------- the end of a pohod ---------- */
+#level-stars{font-size:46px;letter-spacing:10px;text-align:center;margin:4px 0 2px;color:#ffd98a}
+#level-stars i{display:inline-block;font-style:normal;opacity:0;transform:scale(2.4);animation:starPop .45s cubic-bezier(.2,1.6,.4,1) forwards;text-shadow:0 2px 3px #0008}
+#level-stars i.off{color:#5a5a50;text-shadow:none}
+@keyframes starPop{to{opacity:1;transform:scale(1)}}
+.skill-card{animation:skillIn .8s .9s both;box-shadow:0 0 30px #d9b56a33}
+@keyframes skillIn{from{opacity:0;transform:translateY(12px);filter:brightness(2)}}
+#death .modal-card{border-color:#a3323c99;box-shadow:0 0 120px #7a1f2788,inset 0 0 60px #2a060888}
+/* ---------- fit and finish ---------- */
+#menu .menu-copy{top:50%;transform:translateY(-50%);padding:30px 40px 24px}
+#menu .menu-copy h1{font-size:100px;letter-spacing:7px;margin:8px 0 4px;white-space:nowrap}
+#menu .intro{font-size:20px;margin:12px 0 16px}
+#menu .menu-note{display:none}
+#menu .secondary{margin-top:10px}
+#levels .modal-card h2{font-size:34px;margin:2px 0}
+#levels .modal-card h2::after{margin:6px 0 0}
+#levels .variant-pick{margin:6px 0 0}
+.map-field{height:400px}
+#level-done .modal-card{padding:26px 30px;width:min(520px,100%)}
+#level-done .modal-card h2{font-size:34px}
+#level-stats{display:grid!important;grid-template-columns:repeat(4,1fr);gap:10px 14px!important;margin:12px 0!important}
+#level-stats b{font:700 22px var(--display)!important;margin-bottom:2px!important;white-space:nowrap}
+#level-stats div{font-size:11px}
+#level-stars{font-size:40px;margin:0}
+.skill-card{margin:8px 0;padding:10px 16px}
+#controls{transition:opacity 1.6s}
+#controls.faded{opacity:0}
+/* ---------- the two parts of the journey ---------- */
+#level-variants{display:flex;flex-wrap:wrap;gap:8px;align-items:stretch}
+#level-variants [data-tab]{flex:1;min-width:220px;padding:10px 14px;font:700 17px var(--display);color:#e9d7ad;background:#0e2425;border:1px solid #d9b56a55;text-align:left}
+#level-variants [data-tab] small{display:block;font:11px Arial;letter-spacing:1px;color:#a9b9ad;margin-top:2px}
+#level-variants [data-tab].on{background:linear-gradient(180deg,#a3323c,#6a1c23);color:var(--gold2);border-color:var(--gold)}
+#level-variants .variants{display:flex;gap:6px;width:100%}
+#level-variants .variants button{flex:1}
+.order-note{font:16px/1.4 var(--display)!important;color:#d8cfb6!important;margin:8px 0 0!important}
+.order-note b{color:var(--gold2)}
+.map-field.story{background:radial-gradient(ellipse at 30% 30%,#e3c9a0 0%,#cfae7c 45%,#a8834e 100%)}
+.map-node.chapter{background-color:#5c151c;background-size:118%;background-position:center 20%;border-color:#a3323c}
+.map-node.chapter.done{border-color:#d9b56a}
+.map-node.chapter span{font-size:13px;letter-spacing:1px}
+.map-detail .vista.portrait{background-size:contain;background-color:#132a2a;background-position:center bottom}
+/* ---------- the ability bar: icons with a draining cooldown ---------- */
+#abilities{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;pointer-events:none;z-index:3;padding:9px 14px 18px;border-radius:14px;background:linear-gradient(#0b1414e6,#081010ee);box-shadow:inset 0 0 0 1px #8a744877,0 6px 18px #0009}
+#abilities .ab{position:relative;width:58px;height:58px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#24302d,#0d1514);box-shadow:inset 0 0 0 2px #6a5a3a,0 3px 8px #000a;display:grid;place-items:center;color:#e8d4a2}
+#abilities .ab[hidden]{display:none}
+#abilities .ab svg{width:28px;height:28px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#abilities .ab img{position:absolute;inset:1px;width:56px;height:56px;border-radius:50%;object-fit:cover}
+#abilities .ab .cd{position:absolute;inset:0;border-radius:50%;background:conic-gradient(rgba(4,8,9,.8) calc(var(--p,0)*1turn),transparent 0)}
+#abilities .ab .ring{position:absolute;inset:-4px;border-radius:50%;background:conic-gradient(#d9b56a calc(var(--r,1)*1turn),#2a2a24 0);-webkit-mask:radial-gradient(circle,transparent 30px,#000 31px);mask:radial-gradient(circle,transparent 30px,#000 31px);opacity:0}
+#abilities .ab.res .ring{opacity:1}
+#abilities .ab.res:not(.ready) img,#abilities .ab.res:not(.ready) svg{filter:saturate(.35) brightness(.7)}
+#abilities .ab .left{position:absolute;inset:0;display:grid;place-items:center;font:700 17px Georgia,serif;color:#f4e6c2;text-shadow:0 1px 3px #000,0 0 6px #000}
+#abilities .ab.res .left{font-size:12px;top:auto;bottom:6px;inset-inline:0;height:auto}
+#abilities .ab .key{position:absolute;bottom:-17px;left:50%;transform:translateX(-50%);font:700 11px Arial;color:#f0e2bd;white-space:nowrap;background:#1a1712;border:1px solid #8a7448;border-radius:5px;padding:1px 6px}
+#abilities .ab .key[data-pad="A"]{background:#2f5a35;border-color:#6fbf78}#abilities .ab .key[data-pad="B"]{background:#6a2a24;border-color:#d86a5e}
+#abilities .ab .key[data-pad="X"]{background:#24426a;border-color:#6a96d8}#abilities .ab .key[data-pad="Y"]{background:#6a5a1e;border-color:#e0c25a}
+#abilities .ab.ready{box-shadow:inset 0 0 0 2px #d9b56a,0 3px 8px #000a}
+#abilities .ab.cooling img,#abilities .ab.cooling svg{filter:saturate(.4) brightness(.75)}
+#abilities .ab.denied{animation:abNo .3s}
+#abilities .ab-sep{width:1px;height:44px;background:#8a744877;margin:0 2px}
+@keyframes abNo{30%{transform:translateX(-4px);box-shadow:inset 0 0 0 2px #ff6a4a}70%{transform:translateX(4px)}}
+.kombinacije{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px;margin:10px 0}
+.kombinacije div{padding:8px 12px;background:#0c2224aa;border:1px solid #c8ab6f33}
+.kombinacije kbd{margin-right:8px}.kombinacije b{font:600 15px var(--display);color:#f1dfb8}.kombinacije small{display:block;font:11px Arial;color:#a9b9ad;margin-top:3px}
+@media(max-width:600px){#abilities{bottom:120px;transform:translateX(-50%) scale(.82)}}
+#abilities{left:22px;bottom:46px;transform:none;display:grid;grid-template-columns:repeat(4,58px);gap:26px 14px;padding:12px 14px 26px}
+#abilities .ab-sep{display:none}
+@media(max-width:600px){#abilities{bottom:150px;transform:scale(.8);transform-origin:left bottom}}
+
+/* ---------- language: SR | EN ---------- */
+.lang-pick{position:absolute;top:24px;right:30px;z-index:6;display:flex;background:#081516b0;box-shadow:inset 0 0 0 1px #d9b56a88;clip-path:polygon(8px 0,calc(100% - 8px) 0,100% 8px,100% calc(100% - 8px),calc(100% - 8px) 100%,8px 100%,0 calc(100% - 8px),0 8px)}
+.lang-pick button{background:none;border:0;padding:8px 15px;font:700 14px var(--display);letter-spacing:2.5px;color:#cdbf9c;transition:color .2s,background .2s}
+.lang-pick button:hover{color:var(--gold2)}
+.lang-pick button.on{background:linear-gradient(180deg,#a3323c,#6a1c23);color:var(--gold2);text-shadow:0 1px 0 #3a0c10}
+
+/* ---------- main menu: continue first, the treasury and the book side by side ---------- */
+.menu-actions{display:flex;flex-direction:column}
+.menu-actions>button:first-child:not([hidden])+button{margin-top:10px}
+#continue small{display:block;font:600 14px var(--display);letter-spacing:.6px;color:#f1d9a8;margin-top:3px;text-shadow:none;opacity:.92}
+.menu-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+#menu .menu-pair .secondary{margin-top:0;text-align:center;padding:11px 8px;font-size:15px}
+#menu-ledger button{flex:1;text-align:center;padding:8px 4px;background:#08151688;box-shadow:inset 0 0 0 1px #d9b56a33;border:0;color:inherit;transition:background .2s,box-shadow .2s,transform .2s}
+#menu-ledger button:hover,#menu-ledger button:focus-visible,#menu-ledger button.pad-focus{background:#12302ecc;box-shadow:inset 0 0 0 1px #d9b56aaa;transform:translateY(-2px)}
+#menu-ledger button b{display:block;font:700 22px var(--display);color:var(--gold2)}
+#menu-ledger button small{font:10px Arial;letter-spacing:2px;color:#b9c4b4}
+#menu .primary::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(105deg,transparent 35%,#fff4 50%,transparent 65%);transform:translateX(-120%);animation:sheen 6s 2.2s ease-in-out infinite}
+@keyframes sheen{0%,72%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+/* the menu comes in: the panel slides, its lines rise one after another, the title is written in gold */
+#menu:not([hidden]) .menu-copy{animation:panelIn .8s cubic-bezier(.2,.8,.2,1) both}
+#menu:not([hidden]) .menu-copy>*{animation:rise .7s cubic-bezier(.2,.8,.2,1) both}
+#menu .menu-copy>:nth-child(1){animation-delay:.12s}#menu .menu-copy>:nth-child(3){animation-delay:.5s}#menu .menu-copy>:nth-child(4){animation-delay:.6s}
+#menu .menu-copy>:nth-child(5){animation-delay:.72s}#menu .menu-copy>:nth-child(6){animation-delay:.84s}#menu .menu-copy>:nth-child(7){animation-delay:.95s}#menu .menu-copy>:nth-child(8){animation-delay:1s}
+#menu:not([hidden]) .menu-copy h1{animation:titleIn 1.2s .2s cubic-bezier(.3,.7,.2,1) both,shine 7s 1.6s ease-in-out infinite}
+@keyframes panelIn{from{opacity:0;translate:-40px 0}}
+@keyframes rise{from{opacity:0;translate:0 14px}}
+@keyframes titleIn{from{clip-path:inset(-30% 105% -50% -10%);letter-spacing:22px}to{clip-path:inset(-30% -10% -50% -10%)}}
+#menu:not([hidden]) .menu-marko{animation:markoIn 1.3s .15s cubic-bezier(.2,.8,.2,1) both,breathe 6s 1.5s ease-in-out infinite}
+@keyframes markoIn{from{opacity:0;translate:70px 0}}
+#menu:not([hidden]) .menu-fairy{animation:fairyIn 1.6s .7s cubic-bezier(.2,.8,.2,1) both,float 5s 2.3s ease-in-out infinite}
+@keyframes fairyIn{from{opacity:0;translate:60px -40px;scale:.5}}
+#menu:not([hidden]) .lang-pick,#menu:not([hidden]) .quote{animation:rise .9s 1.1s both}
+.fairy-dust{position:absolute;right:7%;top:17%;width:200px;height:260px;pointer-events:none;z-index:1}
+.fairy-dust i{position:absolute;width:3px;height:3px;border-radius:50%;background:#effff8;box-shadow:0 0 7px 2px #9fffe0b0;opacity:0;animation:dustFall linear infinite}
+@keyframes dustFall{0%{opacity:0;transform:translate(0,0) scale(1)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx),170px) scale(.4)}}
+@media (prefers-reduced-motion:reduce){#menu *{animation:none!important}}
+
+/* ---------- the treasury points to the book ---------- */
+.dusmani-row p{margin:4px 0 10px!important}
+.dusmani-row .secondary{width:100%}
+
+/* ---------- the book of foes ---------- */
+#knjiga{background:radial-gradient(ellipse at 50% 45%,#1d1410d9,#050a0bf2 75%)}
+.book-wrap{display:flex;flex-direction:column;align-items:center;gap:12px;width:min(1060px,100%)}
+.book{--ink:#2b1c10;--rubric:#7a1f1f;position:relative;display:grid;grid-template-columns:1fr 1fr;width:100%;height:min(580px,calc(100vh - 150px));padding:14px;perspective:2600px;
+ background:linear-gradient(135deg,#5e1b1d,#3a0e12 60%,#2a090c);border-radius:12px;box-shadow:0 40px 90px #000d,inset 0 0 0 2px #d9b56a55,inset 0 0 0 7px #3a0e12,inset 0 0 0 8px #d9b56a33}
+.book .page,.leaf-face.page{position:relative;display:flex;flex-direction:column;min-height:0;overflow:hidden;padding:22px 30px 20px;color:var(--ink);font:16px/1.5 var(--display)}
+.book .page.left,.leaf-face.page.left{background:linear-gradient(90deg,#0000 80%,#5a3a1a33 96%,#2a180a55),radial-gradient(ellipse at 45% 40%,#f6ead0 0%,#ead8b0 55%,#d4b986 100%);border-radius:6px 0 0 6px}
+.book .page.right,.leaf-face.page.right{background:linear-gradient(270deg,#0000 80%,#5a3a1a33 96%,#2a180a55),radial-gradient(ellipse at 55% 40%,#f6ead0 0%,#ead8b0 55%,#d4b986 100%);border-radius:0 6px 6px 0}
+.book .spine{position:absolute;left:50%;top:10px;bottom:10px;width:3px;margin-left:-1.5px;background:linear-gradient(#2a180a00,#2a180a88 20%,#2a180a88 80%,#2a180a00);pointer-events:none;z-index:4}
+.book-eyebrow{font:700 11px Arial!important;letter-spacing:3px;color:#8a5a2a!important;margin:0 0 6px!important;text-transform:uppercase}
+.foe-stage{position:relative;flex:1;min-height:120px;border-radius:4px;background:radial-gradient(ellipse at 50% 88%,#c9a46a55 0%,#0000 55%),radial-gradient(ellipse at 50% 40%,#fff6e000,#8a6a3a22 100%);box-shadow:inset 0 0 0 1px #8a6a3a44}
+.foe-stage::after{content:"";position:absolute;left:8%;right:8%;bottom:13%;height:1px;background:linear-gradient(90deg,#0000,#5a3a1a77,#0000)}
+.foe-stage canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.foe-stage.unknown{background:radial-gradient(ellipse at 50% 60%,#8a6a3a2a,#0000 70%)}
+.pose-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin:10px 0 2px}
+.pose{font:700 13px var(--display);padding:3px 11px;border:1px solid #7a5a3a77;background:#f3e4c0;color:#4a3220;border-radius:14px;transition:background .2s,color .2s}
+.pose:hover:not(:disabled){background:#e9d4a4}
+.pose.on{background:var(--rubric);color:#f6dfaa;border-color:#5a1414}
+.pose:disabled{opacity:.35;cursor:default}
+.foe-name{font:700 36px/1.05 var(--display)!important;color:var(--rubric)!important;margin:6px 0 0!important;text-align:center;letter-spacing:1px}
+.foe-role{font:italic 600 16px var(--display)!important;color:#6a4a2a!important;margin:0!important;text-align:center}
+.book .page.right h4,.leaf-face.page.right h4{font:700 13px Arial;letter-spacing:2.5px;text-transform:uppercase;color:var(--rubric);margin:12px 0 2px;display:flex;align-items:center;gap:10px}
+.book .page.right h4::after,.leaf-face.page.right h4::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,#7a1f1f66,#0000)}
+.book .page.right p,.leaf-face.page.right p{margin:0;color:var(--ink);font:500 17px/1.45 var(--display)}
+.book .page p.weak,.leaf-face.page p.weak{font-weight:700}
+.drop::first-letter{float:left;font:700 50px/.82 var(--display);color:var(--rubric);margin:5px 7px 0 0}
+.tally{margin-top:auto;padding-top:8px;display:grid;grid-template-columns:1fr auto;align-items:end;column-gap:14px}
+.tally h4{grid-column:1/-1}
+.marks{display:flex;flex-wrap:wrap;gap:4px 8px;min-height:30px;align-items:center}
+.marks .none{font:italic 16px var(--display);color:#7a5a3a}
+.marks .more{font:700 18px var(--display);color:var(--ink)}
+.mark{width:32px;height:28px;overflow:visible}
+.mark line{stroke:#3a2414;stroke-width:2.6;stroke-linecap:round;stroke-dasharray:34;stroke-dashoffset:34;animation:ink .28s ease-out forwards}
+@keyframes ink{to{stroke-dashoffset:0}}
+.tally .count{font:700 46px/1 var(--display);color:var(--ink);opacity:.85}
+.seal{position:absolute;right:26px;top:18px;width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:radial-gradient(circle at 35% 30%,#c84a3a,#8a1f1f 55%,#5a0f0f);box-shadow:0 2px 0 #3a0a0a,0 6px 12px #0005,inset 0 0 0 4px #a8302a,inset 0 0 0 6px #6a1414;color:#f6d9a0;font-size:28px;transform:rotate(-12deg);animation:sealIn .55s 1.1s cubic-bezier(.2,1.6,.4,1) both}
+@keyframes sealIn{from{opacity:0;transform:scale(1.9) rotate(-35deg)}}
+.blank{flex:1;display:grid;place-items:center;text-align:center;position:relative}
+.blank p{font:italic 500 19px/1.5 var(--display)!important;color:#6a4a2a!important;max-width:320px}
+.blot{position:absolute;width:120px;height:90px;left:50%;top:62%;transform:translateX(-50%) rotate(-8deg);background:radial-gradient(ellipse at 40% 45%,#2b1c10aa,#2b1c1055 45%,#0000 70%);filter:blur(1px);opacity:.5}
+/* turning a page: a leaf swings over the spine; its back is the new page */
+.leaf{position:absolute;top:14px;bottom:14px;width:calc(50% - 14px);transform-style:preserve-3d;z-index:5;pointer-events:none}
+.leaf.fwd,.leaf.cover{left:50%;transform-origin:left center;animation:flipFwd .8s cubic-bezier(.45,.05,.3,1) both}
+.leaf.back{left:14px;transform-origin:right center;animation:flipBack .8s cubic-bezier(.45,.05,.3,1) both}
+@keyframes flipFwd{from{transform:rotateY(0)}to{transform:rotateY(-180deg)}}
+@keyframes flipBack{from{transform:rotateY(0)}to{transform:rotateY(180deg)}}
+.leaf-face{position:absolute!important;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden}
+.leaf-face.back{transform:rotateY(180deg)}
+.leaf .leaf-face::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,#0000,#2a180a66);opacity:0;animation:leafShade .8s both}
+.leaf.back .leaf-face::after{background:linear-gradient(270deg,#0000,#2a180a66)}
+@keyframes leafShade{50%{opacity:1}}
+/* opening the book: the leather cover swings open over the spine */
+.leaf.cover{animation-duration:1.05s;animation-delay:.2s}
+.leaf.cover .front{border-radius:0 8px 8px 0;display:grid;place-items:center;background:linear-gradient(135deg,#6e2224,#40101380 70%),linear-gradient(135deg,#5e1b1d,#2a090c);box-shadow:inset 0 0 0 3px #d9b56a99,inset 0 0 0 10px #3a0e12,inset 0 0 0 11px #d9b56a66}
+.leaf.cover .front span{font:700 34px/1.25 var(--display);letter-spacing:6px;text-align:center;color:#f3dca0;text-shadow:0 2px 0 #3a0c10}
+.leaf.cover .back{border-radius:8px 0 0 8px;background:linear-gradient(90deg,#c9ad7a,#e2cc9c)}
+.book.opening .page.left{animation:pageShow 1.25s both}
+@keyframes pageShow{0%,55%{opacity:0}100%{opacity:1}}
+.book.opening{animation:bookIn .6s cubic-bezier(.2,.8,.2,1) both}
+@keyframes bookIn{from{opacity:0;transform:translateY(24px) scale(.94)}}
+.book.fade .page{animation:pageFade .35s both}
+@keyframes pageFade{from{opacity:0;transform:translateX(10px)}}
+.book-nav{display:flex;align-items:center;gap:12px;max-width:100%}
+.book-arrow{flex:none;width:46px;height:46px;border-radius:50%;font:700 30px/1 var(--display);color:var(--gold2);background:linear-gradient(180deg,#a3323c,#5c151c);border:0;box-shadow:inset 0 0 0 1px #f3dca099,0 4px 12px #0008;transition:transform .2s,filter .2s}
+.book-arrow:hover,.book-arrow:focus-visible,.book-arrow.pad-focus{transform:scale(1.08);filter:brightness(1.15)}
+.book-tabs{display:flex;gap:8px;overflow-x:auto;padding:6px 4px;scrollbar-width:none}
+.book-tabs .tab{flex:none;width:54px;height:54px;padding:0;border-radius:50%;overflow:hidden;border:2px solid #8a6a2c;background:radial-gradient(circle at 50% 40%,#f6ead0,#d4b986);transition:transform .2s,box-shadow .2s}
+.book-tabs .tab canvas{width:100%;height:100%;display:block}
+.book-tabs .tab:hover,.book-tabs .tab:focus-visible,.book-tabs .tab.pad-focus{transform:translateY(-3px)}
+.book-tabs .tab.on{border-color:var(--gold2);box-shadow:0 0 0 3px #a3323c;transform:translateY(-3px)}
+#book-close{color:#e9d7ad}
+@media(max-width:760px){.book{grid-template-columns:1fr;height:auto;max-height:calc(100vh - 170px);overflow:auto}
+ .book .page.left,.book .page.right{border-radius:6px}.book .spine{display:none}.foe-stage{min-height:220px}.foe-name{font-size:30px!important}}
+/* the menu panel holds two more buttons: tighter type so it clears the top line on a 720p screen */
+#menu .menu-copy{top:calc(50% + 16px);padding:26px 38px 20px}
+#menu .menu-copy h1{font-size:88px;margin:4px 0 2px}
+#menu .intro{font-size:18px;line-height:1.42;margin:10px 0 14px}
+#menu-ledger{margin:12px 0 0}
+#menu .menu-links{margin:16px 0 4px}
+@media(max-height:690px){#menu .intro{display:none}#menu .menu-copy h1{font-size:76px}}
+.foe-stage canvas,.book-tabs canvas,.leaf-face canvas{background:none!important}
+.book .seal,.leaf-face .seal{top:auto;bottom:104px;right:34px}
+.book .page.right p,.leaf-face.page.right p{font-size:19px;line-height:1.42}
+.book .page.right h4,.leaf-face.page.right h4{margin:16px 0 4px}
+.leaf .front .mark line{animation:none;stroke-dashoffset:0}
+.leaf .front .seal{animation:none}
+.leaf.cover .leaf-face::after{animation-duration:1.05s;animation-delay:.2s}
+
+/* ================= the manuscript look, after the Miroslav Gospel: parchment, cinnabar rubrics, interlace headpieces,
+   illuminated initials (Codex: rukopis-zastavica, rukopis-okvir-inicijala, rukopis-inicijal-m) ================= */
+:root{--parch:url(assets/ui/vlakna.svg),radial-gradient(ellipse at 50% 42%,#f7ecd2 0%,#eddcb4 52%,#dbc08c 100%);--cinnabar:#a8321f;--verdigris:#2f6b4f;--lapis:#2c4a8a;--leaf:#c8a24a;--ms-ink:#2b1c10}
+.sr-only{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+/* pages */
+.book .page.left,.leaf-face.page.left{background:linear-gradient(90deg,#0000 82%,#5a3a1a2e 95%,#2a180a5c),var(--parch)}
+.book .page.right,.leaf-face.page.right{background:linear-gradient(270deg,#0000 82%,#5a3a1a2e 95%,#2a180a5c),var(--parch)}
+.book .page::before,.leaf-face.page::before{content:"";position:absolute;inset:12px;border:1px solid #a8321f2a;box-shadow:inset 0 0 0 3px #f7ecd200,inset 0 0 0 4px #a8321f14;pointer-events:none}
+.zastavica{flex:none;height:52px;margin:-8px -6px 4px;background:url(assets/ui/rukopis-zastavica.webp) center/contain no-repeat;filter:drop-shadow(0 1px 0 #fff6)}
+.book-eyebrow{color:var(--cinnabar)!important;text-align:center}
+.book .page.right h4,.leaf-face.page.right h4{color:var(--cinnabar)}
+.book .page.right h4::before,.leaf-face.page.right h4::before{content:"✠";font-size:12px;color:var(--verdigris)}
+.foe-name{color:var(--cinnabar)!important;text-shadow:0 1px 0 #fff8}
+.pose.on{background:var(--cinnabar)}
+/* illuminated initials: the letter sits in Codex's interlace frame with birds */
+.drop::first-letter{float:left;font:700 44px/1 var(--display);color:var(--cinnabar);padding:.24em .3em .14em;margin:3px 10px 0 0;background:url(assets/ui/rukopis-okvir-inicijala.webp) center/100% 100% no-repeat;text-shadow:0 1px 0 #f3dca0,0 0 1px #2b1c10}
+/* the Book of Legends */
+.miniature{flex:none;width:min(58%,240px);aspect-ratio:1;margin:2px auto 6px;padding:13%;background:url(assets/ui/rukopis-okvir-inicijala.webp) center/100% 100% no-repeat;display:grid;place-items:center;filter:drop-shadow(0 3px 4px #5a3a1a55)}
+.miniature img{width:100%;height:100%;object-fit:contain;filter:sepia(.18) saturate(1.05) contrast(1.02)}
+.ms-head{text-align:center;margin-top:auto}
+.ms-cy{font:400 21px/1.2 "Ruslan Display",var(--display);letter-spacing:1.5px;color:var(--cinnabar);margin:0!important}
+.ms-body{flex:1;min-height:0;overflow:auto;scrollbar-width:thin}
+.ms-text{font:500 19px/1.48 var(--display)!important;color:var(--ms-ink)!important;margin:2px 0 0!important}
+.ms-note{font:italic 500 16px/1.4 var(--display)!important;color:#6a4a2a!important;margin:12px 0 0!important}
+.verses{list-style:none;margin:2px 0 0;padding:0 0 0 30px;font:500 17px/1.34 var(--display);color:var(--ms-ink)}
+.verses li{position:relative;padding:0 4px;border-radius:3px;transition:background .25s,color .25s}
+.verses li i{position:absolute;left:-30px;width:24px;text-align:right;font:italic 600 12px/1.9 var(--display);color:var(--cinnabar)}
+.verses li.now{background:linear-gradient(90deg,#c8a24a66,#c8a24a10);color:#000}
+.ms-end{text-align:center;color:var(--cinnabar);font-size:22px;margin:8px 0 0!important}
+.read-bar{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0 0}
+.read-bar button{font:700 14px var(--display);padding:5px 14px;border-radius:16px;border:1px solid #7a2a1a99;background:#f3e4c0;color:#5a1a10;transition:background .2s}
+.read-bar button:hover,.read-bar button.pad-focus,.read-bar button:focus-visible{background:#ead39f}
+.read-bar button.on{background:var(--cinnabar);color:#f6dfaa}
+.read-bar button b{font-size:11px;margin-right:6px}
+.book-tabs .tab.pic{background:radial-gradient(circle at 50% 40%,#f6ead0,#d4b986)}
+.book-tabs .tab.pic img{width:100%;height:100%;object-fit:cover;object-position:50% 18%}
+.book-tabs .tab.pic.song{box-shadow:0 0 0 2px #a8321f66}
+.leaf.cover .front span{font-family:"Ruslan Display",var(--display);font-weight:400}
+
+/* the menu becomes a leaf of the same manuscript */
+#menu .menu-copy{color:var(--ms-ink);background-image:url(assets/ui/corner-tl.svg),url(assets/ui/corner-tr.svg),url(assets/ui/corner-bl.svg),url(assets/ui/corner-br.svg),url(assets/ui/vlakna.svg),radial-gradient(ellipse at 50% 38%,#f7ecd2 0%,#ecdab0 55%,#d6b981 100%);
+ background-size:54px,54px,54px,54px,auto,auto;background-repeat:no-repeat,no-repeat,no-repeat,no-repeat,repeat,no-repeat;
+ box-shadow:0 30px 80px #000c,inset 0 0 0 1px #6a3a1a66,inset 0 0 0 5px #f1e2bd,inset 0 0 0 6px #a8321f55,inset 0 0 60px #8a5a2a55;padding-top:62px!important}
+#menu .menu-copy::before{content:"";position:absolute;left:46px;right:46px;top:12px;height:46px;background:url(assets/ui/rukopis-zastavica.webp) center/contain no-repeat}
+#menu .eyebrow{color:var(--cinnabar)!important;font-weight:700}
+#menu .menu-copy h1{--hs:88px;background:linear-gradient(100deg,#7a1f14 0%,#a8321f 35%,#c8452c 45%,#a8321f 55%,#7a1f14 85%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;filter:drop-shadow(0 2px 0 #e7c46a) drop-shadow(0 6px 14px #5a3a1a55);display:flex;align-items:flex-end;gap:2px}
+#menu .menu-copy h1 .ini{display:inline-block;font-size:0;width:calc(var(--hs)*1.02);height:calc(var(--hs)*1.25);margin:0 4px -10px -8px;background:url(assets/ui/rukopis-inicijal-m.webp) center/contain no-repeat;filter:drop-shadow(0 2px 2px #3a1a0a66)}
+#menu .subtitle{color:var(--cinnabar)}
+#menu .subtitle span{filter:sepia(1) saturate(3) hue-rotate(-20deg) brightness(.55)}
+#menu .intro{color:#3a2414;font-style:italic}
+#menu .secondary{background:linear-gradient(180deg,#f1e2bd,#e2cb98);color:#3a2414;box-shadow:inset 0 0 0 1px #8a5a2aaa,inset 0 0 0 4px #f1e2bd,inset 0 0 0 5px #a8321f40;text-shadow:none}
+#menu .secondary:hover,#menu .secondary.pad-focus,#menu .secondary:focus-visible{background:linear-gradient(180deg,#f6e9c8,#e8d3a2);box-shadow:inset 0 0 0 1px var(--cinnabar),inset 0 0 0 4px #f1e2bd,inset 0 0 0 5px #a8321f88,0 0 16px #c8a24a55}
+#menu-ledger button{background:#e4cd9c99;box-shadow:inset 0 0 0 1px #8a5a2a55}
+#menu-ledger button:hover,#menu-ledger button:focus-visible,#menu-ledger button.pad-focus{background:#ecd9aecc;box-shadow:inset 0 0 0 1px var(--cinnabar)}
+#menu-ledger button b{color:var(--cinnabar)}
+#menu-ledger button small{color:#5a4030}
+#menu .menu-links{flex-wrap:wrap;row-gap:6px}
+#menu .menu-links button{color:#3a2414}
+#menu .menu-links button:hover{color:var(--cinnabar);text-shadow:none}
+#menu .menu-links i{color:var(--cinnabar)}
+#menu .menu-copy :focus-visible{outline:2px solid var(--cinnabar);outline-offset:2px}
+.menu-marko.live{background:none!important;cursor:pointer;object-fit:contain}
+@media(max-height:690px){#menu .menu-copy h1{--hs:76px}}
+#menu .menu-marko.live{right:13%}
+#menu .quote{right:2.5%;bottom:44px;max-width:320px;font-size:16px}
+@media(max-width:900px){#menu .menu-marko.live{right:-6%}}
+.book-tabs .tab.pic img{object-fit:contain;padding:5px}
+.book-tabs .tab.pic.cast img{object-fit:cover;padding:0}
+.ms-text{font-size:20px!important}
+.ms-body .ms-end{letter-spacing:10px;font-size:16px;opacity:.8}
+.ms-epi{margin:22px 10px 0;padding:14px 18px;border-left:3px solid var(--cinnabar);background:linear-gradient(90deg,#c8a24a22,#0000);font:italic 500 18px/1.45 var(--display);color:#3a2414}
+.ms-epi span{display:block}
+.ms-epi cite{display:block;margin-top:6px;font:700 11px Arial;letter-spacing:2px;text-transform:uppercase;color:var(--cinnabar);font-style:normal}
+/* a painted miniature fills the frame's opening edge to edge */
+.miniature.painted{padding:11.5%}
+.miniature.painted img{object-fit:cover;filter:none;border-radius:1px;box-shadow:0 0 0 1px #5a3a1a88}
+
+/* ---------- Codex's parchment, binding and ornaments (DOPUNA-6) ---------- */
+:root{--parch:radial-gradient(ellipse at 50% 42%,#0000 50%,#7a4a1a30 100%),url(assets/ui/rukopis-pergament.webp) center/cover}
+#menu .menu-copy{background-image:url(assets/ui/corner-tl.svg),url(assets/ui/corner-tr.svg),url(assets/ui/corner-bl.svg),url(assets/ui/corner-br.svg),radial-gradient(ellipse at 50% 40%,#0000 45%,#7a4a1a3a 100%),url(assets/ui/rukopis-pergament.webp);
+ background-size:54px,54px,54px,54px,auto,cover;background-repeat:no-repeat}
+.book{background:url(assets/ui/rukopis-korice.webp) center/cover,#4a1214}
+.leaf.cover .front{background:url(assets/ui/rukopis-korice.webp) center/cover!important;box-shadow:inset 0 0 0 1px #00000055,inset -14px 0 24px #0005!important}
+.leaf.cover .front span{display:none}
+.ms-birds{display:flex;justify-content:center;align-items:flex-end;gap:6px;margin:14px 0 0}
+.ms-birds img{width:74px;height:74px;object-fit:contain;filter:drop-shadow(0 1px 1px #5a3a1a55)}
+#menu-legende::before,#menu-knjiga::before{content:"";display:inline-block;width:20px;height:25px;margin:-8px 8px -6px 0;vertical-align:middle;background:url(assets/ui/rukopis-inicijal-k.webp) center/contain no-repeat}
+.book-tabs .tab.pic.song img{object-fit:contain;padding:6px}
+
+/* ================= main menu, second pass: a banner for the main action, a table of contents for the rest ================= */
+#menu .menu-actions .primary{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;margin:2px 0 0;padding:15px 34px 14px;border:0;clip-path:none;box-shadow:none;text-align:center;
+ background:url(assets/ui/barjak.svg) center/100% 100% no-repeat;color:#fbe7b5;font:700 20px/1.15 var(--display);letter-spacing:1.6px;text-shadow:0 1px 0 #4a0e08,0 0 10px #0004;filter:drop-shadow(0 4px 6px #5a1a0a55);transition:transform .25s,filter .25s}
+#menu .menu-actions .primary::before,#menu .menu-actions .primary::after{content:"✦";position:static;inset:auto;background:none;transform:none;animation:none;font-size:12px;color:#f3dca0;opacity:.85}
+#menu .menu-actions .primary span{float:none;margin:0;font-size:18px;line-height:1;color:#f3dca0;transition:transform .25s}
+#menu .menu-actions .primary small{display:block;width:100%;margin-top:2px;font:italic 600 14px var(--display);letter-spacing:.4px;color:#f6dca8;opacity:.95}
+#menu .menu-actions #continue.primary{flex-wrap:wrap;row-gap:0;padding:12px 34px 11px}
+#menu .menu-actions .primary:hover,#menu .menu-actions .primary:focus-visible,#menu .menu-actions .primary.pad-focus{transform:translateY(-1px) scale(1.012);filter:drop-shadow(0 6px 12px #5a1a0a77) brightness(1.1);outline:none}
+#menu .menu-actions .primary:hover span,#menu .menu-actions .primary:focus-visible span{transform:translateX(4px)}
+.ms-list{display:flex;flex-direction:column;margin:12px 0 0;border-top:1px solid #a8321f40}
+#menu .ms-item{position:relative;display:grid;grid-template-columns:42px 1fr 18px;grid-template-rows:auto auto;column-gap:12px;align-items:center;width:100%;min-width:0;margin:0;padding:7px 4px 7px 2px;
+ background:none;border:0;border-bottom:1px solid #a8321f2e;border-radius:0;box-shadow:none;clip-path:none;text-align:left;color:var(--ms-ink);transition:background .25s}
+#menu .ms-item::before{content:attr(data-ini);grid-row:1/3;grid-column:1;display:grid;place-items:center;width:42px;height:42px;padding-top:2px;
+ background:url(assets/ui/rukopis-okvir-inicijala.webp) center/100% 100% no-repeat;font:700 22px/1 var(--display);color:var(--cinnabar);text-shadow:0 1px 0 #f3dca0;transition:transform .3s}
+#menu .ms-item::after{content:"→";grid-row:1/3;grid-column:3;color:var(--cinnabar);font-size:16px;opacity:.35;transition:opacity .25s,transform .25s}
+#menu .ms-item .lbl{grid-column:2;font:700 18.5px/1.15 var(--display);color:#3a1a10;letter-spacing:.3px}
+#menu .ms-item small{grid-column:2;font:italic 500 14px/1.25 var(--display);color:#6a4a2a;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+#menu .ms-item:hover,#menu .ms-item:focus-visible,#menu .ms-item.pad-focus{background:linear-gradient(90deg,#c8a24a33,#c8a24a10 70%,#0000);outline:none;transform:none}
+#menu .ms-item:hover::before,#menu .ms-item:focus-visible::before,#menu .ms-item.pad-focus::before{transform:rotate(-4deg) scale(1.08)}
+#menu .ms-item:hover::after,#menu .ms-item:focus-visible::after,#menu .ms-item.pad-focus::after{opacity:1;transform:translateX(3px)}
+#menu .ms-item:hover .lbl,#menu .ms-item:focus-visible .lbl,#menu .ms-item.pad-focus .lbl{color:var(--cinnabar)}
+#menu-legende::before,#menu-knjiga::before{margin:0}
+/* the ledger: one ruled line of red figures */
+#menu-ledger{display:flex;gap:0;margin:12px 0 0;padding:5px 0;border-top:1px solid #a8321f40;border-bottom:1px solid #a8321f40}
+#menu-ledger button{flex:1;display:flex;flex-direction:column;align-items:center;background:none!important;box-shadow:none!important;border:0;border-left:1px dotted #a8321f40;padding:2px 2px;transform:none!important}
+#menu-ledger button:first-child{border-left:0}
+#menu-ledger button b{font:700 19px/1.1 var(--display);color:var(--cinnabar)}
+#menu-ledger button small{font:600 9.5px Arial;letter-spacing:1.8px;color:#5a4030}
+#menu-ledger button:hover b,#menu-ledger button:focus-visible b{text-decoration:underline;text-decoration-color:#a8321f66}
+#menu .menu-links{margin:12px 0 2px}
+
+/* ================= the intro ================= */
+#intro{position:absolute;inset:0;z-index:30;display:grid;grid-template-rows:1fr auto;background:#070605;overflow:hidden;opacity:1;transition:opacity .45s}
+#intro.out{opacity:0}
+#intro .intro-bg{position:absolute;inset:-60px;background:#000 center/cover;filter:blur(28px) brightness(.32) saturate(1.2);transition:background-image .6s}
+#intro .intro-stage{position:relative;display:grid;grid-template-columns:auto minmax(280px,440px);align-items:center;justify-content:center;gap:clamp(20px,4vw,56px);padding:clamp(16px,4vh,48px) 24px 0}
+#intro .intro-pic{margin:0;width:min(62vh,560px,48vw);aspect-ratio:1;padding:2.8%;background:url(assets/ui/rukopis-okvir-inicijala.webp) center/100% 100% no-repeat;filter:drop-shadow(0 20px 40px #000c)}
+#intro .intro-pic img{display:block;width:100%;height:100%;object-fit:cover;padding:7.5%;transform-origin:50% 50%}
+#intro .intro-card{position:relative;padding:20px 28px 24px;background:radial-gradient(ellipse at 50% 40%,#0000 50%,#7a4a1a40 100%),url(assets/ui/rukopis-pergament.webp) center/cover;box-shadow:0 20px 50px #000b,inset 0 0 0 1px #6a3a1a66,inset 0 0 0 5px #f1e2bd,inset 0 0 0 6px #a8321f55;color:var(--ms-ink)}
+#intro .intro-card .zastavica{height:40px;margin:-6px 0 6px}
+#intro .intro-eyebrow{margin:0 0 8px;text-align:center;font:700 12px Arial;letter-spacing:3px;text-transform:uppercase;color:var(--cinnabar)}
+#intro .intro-text{margin:0;font:500 clamp(18px,2.1vw,23px)/1.5 var(--display);color:var(--ms-ink)}
+#intro .intro-text::first-letter{float:left;font:700 50px/1 var(--display);color:var(--cinnabar);padding:.22em .3em .12em;margin:4px 10px 0 0;background:url(assets/ui/rukopis-okvir-inicijala.webp) center/100% 100% no-repeat}
+#intro .intro-stage.show .intro-pic img{animation:kenBurns 11s ease-out both}
+/* a living scene before a pohod (DOPUNA-36): Codex's 12-frame painted strip, framed like the pause camp */
+#intro .intro-anim{display:none}
+#intro .intro-pic.anim{aspect-ratio:3/2;width:min(70vh,720px,56vw);padding:0;background:none;border-radius:6px;overflow:hidden;box-shadow:0 0 0 2px #7a5c34,0 0 0 7px #1e150d,0 0 0 9px #6a5230,0 22px 46px #000d}
+#intro .intro-pic.anim img{display:none}
+#intro .intro-pic.anim .intro-anim{display:block;width:100%;height:100%;background:0 0/1200% 100% no-repeat;animation:prelazAnim 1.5s steps(12) infinite}
+@keyframes prelazAnim{to{background-position:109.0909% 0}}
+#intro .intro-stage.show .intro-pic{animation:picIn .9s cubic-bezier(.2,.8,.2,1) both}
+#intro .intro-stage.show .intro-card{animation:cardIn 1s .25s cubic-bezier(.2,.8,.2,1) both}
+@keyframes kenBurns{from{transform:scale(1)}to{transform:scale(1.14)}}
+@keyframes picIn{from{opacity:0;transform:scale(.96)}}
+@keyframes cardIn{from{opacity:0;transform:translateY(16px)}}
+#intro .intro-foot{position:relative;display:flex;align-items:center;justify-content:center;gap:28px;padding:14px 20px 22px}
+#intro .intro-dots{display:flex;gap:8px}
+#intro .intro-dots i{width:8px;height:8px;border-radius:50%;background:#f3dca033;box-shadow:inset 0 0 0 1px #f3dca088;transition:background .3s,transform .3s}
+#intro .intro-dots i.on{background:#e7c46a;transform:scale(1.3)}
+#intro .text-button{color:#e9d7ad!important}
+@media(max-width:820px){#intro .intro-stage{grid-template-columns:1fr;justify-items:center;gap:14px}#intro .intro-pic{width:min(44vh,82vw)}#intro .intro-card{max-width:560px}}
+@media(prefers-reduced-motion:reduce){#intro .intro-stage.show .intro-pic img{animation:none}}
+/* the panel fits a 720p screen with the table of contents */
+#menu .menu-copy{top:50%;padding-top:54px!important;padding-bottom:14px}
+#menu .menu-copy::before{top:9px;height:42px}
+#menu .menu-copy h1{--hs:80px;font-size:80px;margin:0 0 2px}
+#menu .intro{font-size:17px;margin:6px 0 10px}
+#menu .ms-item{grid-template-columns:36px 1fr 18px;padding:4px 4px 4px 2px}
+#menu .ms-item::before{width:36px;height:36px;font-size:19px}
+#menu .ms-item .lbl{font-size:18px}
+#menu .ms-item small{font-size:13.5px}
+.ms-list{margin-top:10px}
+#menu-ledger{margin-top:9px}
+#menu .menu-links{margin:9px 0 0}
+@media(max-height:690px){#menu .menu-copy h1{--hs:70px;font-size:70px}#menu .ms-item small{display:none}}
+#intro .intro-pic{width:min(70vh,620px,52vw);padding:0}
+#intro .intro-pic img{padding:0;margin:16.5%;width:67%;height:67%;box-shadow:0 0 0 1px #3a1a0a88}
+#intro .intro-foot>*{flex:none;width:auto!important;margin:0!important}
+/* the waving barjak (barjak3d.js) replaces the flat banner when WebGL is there */
+#menu .menu-actions .primary.has-flag{overflow:visible}
+#menu .menu-actions .primary .flag3d{position:absolute;left:-30px;top:-22px;width:calc(100% + 44px);height:calc(100% + 38px);pointer-events:none;background:none!important;z-index:0}
+#menu .menu-actions .primary.flag-on{background:none!important;color:transparent!important;text-shadow:none!important;filter:none!important;transform:none!important}
+#menu .menu-actions .primary.flag-on::before,#menu .menu-actions .primary.flag-on::after,#menu .menu-actions .primary.flag-on>span,#menu .menu-actions .primary.flag-on>small{visibility:hidden}
+#menu .menu-actions .primary.flag-on:hover .flag3d,#menu .menu-actions .primary.flag-on:focus-visible .flag3d,#menu .menu-actions .primary.flag-on.pad-focus .flag3d{filter:drop-shadow(0 0 10px #f3d58a88) drop-shadow(0 6px 8px #3a0a0566)}
+#menu .menu-actions .primary.flag-on .flag3d{filter:drop-shadow(0 6px 8px #3a0a0555);transition:filter .3s}
+#menu .menu-actions .primary.flag-on{margin-top:14px;margin-bottom:8px}
+/* the opening and fading belong to the book's own two pages, never to a leaf that is turning */
+.book.opening .page.left,.book.fade .page{animation:none}
+.book.opening>.page.left{animation:pageShow 1.25s both}
+.book.fade>.page{animation:pageFade .35s both}
+.book .leaf-face.page{animation:none!important;opacity:1!important}
+
+/* ---------- the closed book: only its binding, centered; it opens on a click ---------- */
+.book{transition:transform .95s cubic-bezier(.45,.05,.3,1)}
+.book.closed{transform:translateX(-25%);background:none!important;box-shadow:none!important}
+.book.closed>.page,.book.closed>.spine{visibility:hidden}
+.book.closed+.book-nav{opacity:.25;pointer-events:none}
+.leaf.cover.still{animation:none!important;transform:none;pointer-events:auto;cursor:pointer;transition:transform .3s,filter .3s;filter:drop-shadow(0 26px 40px #000c)}
+.leaf.cover.still:hover,.leaf.cover.still:focus-visible{transform:translateY(-4px) rotateY(-6deg);outline:none;filter:drop-shadow(0 30px 46px #000d) brightness(1.06)}
+.leaf.cover.still .leaf-face::after{animation:none!important;opacity:0}
+.leaf.cover .front .plate span{display:block}
+.leaf.cover .plate{position:absolute;left:16%;right:16%;top:8%;padding:12px 8px 10px;text-align:center;background:linear-gradient(180deg,#6a1a18,#3a0a0c);box-shadow:inset 0 0 0 2px #e7c46a,inset 0 0 0 5px #3a0a0c,inset 0 0 0 6px #e7c46a88,0 6px 14px #000a}
+.leaf.cover .plate span{font:400 clamp(20px,2.4vw,30px)/1.2 "Ruslan Display",var(--display);letter-spacing:4px;color:#f3dca0;text-shadow:0 2px 0 #2a0606}
+.leaf.cover .cover-hint{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);margin:0;padding:7px 18px;border-radius:20px;background:#2a0a0cd9;box-shadow:inset 0 0 0 1px #e7c46a99;font:700 15px var(--display);letter-spacing:1px;color:#f3dca0;white-space:nowrap;animation:hintPulse 2.2s ease-in-out infinite}
+.leaf.cover .cover-hint b{font-size:11px;margin-right:6px}
+.leaf.cover:not(.still) .cover-hint{display:none}
+@keyframes hintPulse{50%{box-shadow:inset 0 0 0 1px #f3dca0}}
+/* ---------- miniatures open large ---------- */
+.miniature.painted{position:relative;cursor:zoom-in}
+.miniature .zoom-badge{position:absolute;right:15%;bottom:15%;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#2b1c10d0;color:#f3dca0;font-size:16px;box-shadow:0 0 0 1px #e7c46a99;opacity:0;transition:opacity .2s}
+.miniature.painted:hover .zoom-badge{opacity:1}
+.miniature:not(.painted) .zoom-badge{display:none}
+#intro .intro-pic{cursor:zoom-in}
+#zoom{position:absolute;inset:0;z-index:40;display:grid;grid-template-rows:1fr auto;background:radial-gradient(ellipse at 50% 45%,#1d1410f0,#050302f8 75%)}
+#zoom .zoom-view{position:relative;overflow:hidden;display:grid;place-items:center;cursor:zoom-in;touch-action:none}
+#zoom.zoomed .zoom-view{cursor:grab}
+#zoom.dragging.zoomed .zoom-view{cursor:grabbing}
+#zoom img{max-width:min(94vw,1000px);max-height:calc(100vh - 96px);width:auto;height:auto;object-fit:contain;transform-origin:50% 50%;transition:transform .14s ease-out;box-shadow:0 0 0 1px #e7c46a66,0 24px 70px #000;user-select:none;-webkit-user-drag:none;pointer-events:none}
+#zoom.dragging img{transition:none}
+#zoom .zoom-bar{display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px 16px}
+#zoom .zoom-cap{margin:0 14px 0 0;font:italic 600 19px var(--display);color:#f3dca0}
+#zoom .zoom-bar button{width:42px;height:42px;border-radius:50%;border:1px solid #d9b56a99;background:#1a0f0a;color:#f3dca0;font:700 21px/1 var(--display);transition:background .2s,transform .2s}
+#zoom .zoom-bar button:hover,#zoom .zoom-bar button:focus-visible{background:#3a1a10;transform:scale(1.06);outline:none}
+/* pisana ćirilica: in Serbian Cyrillic the manuscript texts use Cormorant's italic, which has the Serbian letterforms (б, г, д, п, т) */
+html[lang="sr-Cyrl"] :is(.ms-text,.verses,.intro-text,.ms-epi,.ms-note,.book .page.right p,.leaf-face.page.right p,#dialogue-text,#menu .intro,#menu .ms-item small,.foe-role,.blank p,.zoom-cap){font-style:italic!important}
+html[lang="sr-Cyrl"] :is(.foe-name,#menu .ms-item .lbl,.intro-eyebrow+.intro-text){font-style:italic!important;font-weight:700}
+.lang-pick button{padding:8px 12px;letter-spacing:1.5px}
+
+/* ================= menu, third pass ================= */
+/* a waving banner's canvas never takes room in a table-of-contents line */
+.flag3d{position:absolute}
+#menu .ms-item .flag3d{display:none!important}
+/* the panel always starts below the top line, centred when the screen is tall enough */
+#menu .menu-copy{top:max(78px,calc(50% - 300px))!important;transform:none!important;max-height:calc(100vh - 96px);overflow-y:auto;scrollbar-width:thin}
+#menu .menu-links{flex-wrap:nowrap;gap:12px}
+#menu .menu-links button{font-size:15px;white-space:nowrap}
+.fs-btn{position:absolute;top:24px;right:212px;z-index:6;width:36px;height:36px;border:0;border-radius:4px;background:#081516b0;box-shadow:inset 0 0 0 1px #d9b56a88;color:#e8d7ad;font-size:18px;line-height:1}
+.fs-btn:hover,.fs-btn:focus-visible{color:var(--gold2);box-shadow:inset 0 0 0 1px var(--gold2)}
+/* the backdrop: the Kačanik gorge, slowly drifting; Marko stands on a ledge in his own scale */
+#menu{--ground-h:34vh;--ground-top:calc(var(--ground-h) * .82 - 2vh);--marko:min(84vh,780px)}
+#menu .menu-backdrop{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:#0b1a1a}
+#menu .bd-far{position:absolute;inset:-5%;background:url(assets/gorge.png) 62% 38%/cover no-repeat;animation:bdDrift 70s ease-in-out infinite alternate}
+@keyframes bdDrift{from{transform:scale(1.03) translate(0,0)}to{transform:scale(1.1) translate(-2.2%,1.2%)}}
+#menu .menu-backdrop::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#040d0ecc 0%,#071718a0 32%,#0a1a1a30 58%,#0000 75%),linear-gradient(0deg,#050a0a99 0%,#0000 30%),radial-gradient(ellipse at 75% 30%,#ffd9a018,#0000 60%)}
+#menu .bd-ground{position:absolute;right:-5vw;bottom:-2vh;width:max(62vw,880px);height:var(--ground-h);background:url(assets/ui/meni-tlo.webp) left top/100% 100% no-repeat;z-index:1;filter:drop-shadow(0 -6px 24px #0006)}
+#menu .menu-marko.live{right:max(6vw,calc(36vw - var(--marko) * .62))!important;bottom:calc(var(--ground-top) - var(--marko) * .04)!important;width:var(--marko)!important;height:var(--marko)!important;opacity:1!important;z-index:2}
+#menu .quote{z-index:3}
+#menu .menu-copy{z-index:4}
+@media(max-width:900px){#menu .menu-marko.live{right:-14vw!important;opacity:.55!important}}
+#menu .menu-copy{scrollbar-width:none}
+#menu .menu-copy::-webkit-scrollbar{display:none}
+@media(max-height:820px){#menu .intro{display:none}#menu .menu-copy h1{--hs:74px;font-size:74px}#menu .subtitle{margin-bottom:8px}}
+@media(max-height:640px){#menu .ms-item small{display:none}#menu .menu-copy h1{--hs:62px;font-size:62px}}
+#menu .menu-fairy{right:2.5%!important;top:5%!important;width:120px!important;height:120px!important;z-index:3}
+#menu .fairy-dust{right:2%;top:12%}
+/* Codex's ledge keeps its proportions; Marko's feet sit on its flat top (28% down the picture) */
+#menu{--gw:max(62vw,110vh);--gh:calc(var(--gw) / 3.214);--ground-top:calc(var(--gh) * .72 - 2vh)}
+#menu .bd-ground{width:var(--gw);height:var(--gh);background-size:100% 100%}
+#menu .quote{padding:10px 14px 8px 40px;background:linear-gradient(90deg,#0000,#050c0cb8 28%);text-shadow:0 1px 3px #000,0 0 12px #000}
+
+/* the controls screen */
+.kontrole-card{width:min(1040px,95vw);max-height:92vh;overflow:auto}
+.kontrole-note{opacity:.75;margin:.2em 0 .6em}
+.pad-svg{display:block;width:100%;max-width:880px;margin:0 auto}
+.pad-body{fill:#1d2423;stroke:#8a7448;stroke-width:2}
+.pad-well{fill:#121716;stroke:#3a4241}
+.pad-btn{fill:#2b302e;stroke:#a88c55;stroke-width:1.5;transition:fill .08s}
+.pad-btn.face.fA{stroke:#5fae6a}.pad-btn.face.fB{stroke:#c8564a}.pad-btn.face.fX{stroke:#5a86c8}.pad-btn.face.fY{stroke:#d6b448}
+.pad-btn.on{fill:#d9b56a}
+.pad-stick{transition:transform .05s,fill .08s}
+.pad-glyph{fill:#eadbb4;font:bold 12px Georgia,serif;text-anchor:middle;pointer-events:none}
+.pad-act{fill:#eadbb4;font:15px Georgia,serif}
+.pad-line{stroke:#8a7448;stroke-width:1;stroke-dasharray:3 3;opacity:.7}
+.kontrole-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin:14px 0}
+.kontrole-box{background:#0f1515cc;border:1px solid #8a744866;border-radius:6px;padding:10px 12px}
+.kontrole-box h3{margin:0;font:600 17px Georgia,serif;color:#e8cf95}
+.kontrole-box small{display:block;opacity:.65;margin-bottom:6px}
+.kontrole-box p,.kontrole-keys p{display:flex;gap:10px;align-items:center;margin:5px 0}
+.kontrole-box kbd,.kontrole-keys kbd{min-width:58px;text-align:center;font-size:14px;padding:3px 6px;flex:none}
+.kontrole-keys summary{cursor:pointer;color:#e8cf95;font:600 16px Georgia,serif}
+.kontrole-keys>div{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2px 16px;margin-top:8px}
+
+/* the treasury: tabs, skill cards, key chips */
+.riznica-card{width:min(1080px,95vw);height:min(86vh,860px);display:flex;flex-direction:column}
+.riz-tabs{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 12px;border-bottom:1px solid #8a744866;padding-bottom:8px}
+.riz-tabs button{background:#0f1515;border:1px solid #8a744866;color:#eadbb4;font:600 16px Georgia,serif;padding:7px 14px;border-radius:5px;cursor:pointer}
+.riz-tabs button small{opacity:.7;font-weight:400;margin-left:4px}
+.riz-tabs button.on{background:#d9b56a;color:#1a1410;border-color:#d9b56a}
+.riz-panel{overflow:auto;flex:1;padding-right:6px}
+.riz-lead{opacity:.8;margin:0 0 10px}
+.riz-bar{height:6px;background:#0f1515;border-radius:3px;margin:0 0 12px;overflow:hidden}.riz-bar i{display:block;height:100%;background:#d9b56a}
+.riz-skills{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.riz-skill{display:flex;gap:12px;align-items:flex-start;background:#0f1515cc;border:1px solid #8a744855;border-radius:6px;padding:10px 12px}
+.riz-skill.have{border-color:#d9b56a;box-shadow:inset 3px 0 0 #d9b56a}
+.riz-skill.locked{opacity:.72}
+.riz-num{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#1d2423;border:1px solid #8a7448;font:600 15px Georgia,serif;color:#e8cf95}
+.riz-skill.have .riz-num{background:#d9b56a;color:#1a1410}
+.riz-skill b{font:600 17px Georgia,serif;color:#f1e3bd}
+.riz-skill small{display:block;margin:4px 0;font-size:14px;line-height:1.4;opacity:.9}
+.riz-skill em{display:block;font-style:normal;font-size:13px;color:#d9b56a}
+.riz-skill.locked em{color:#b9a98a}
+.riz-keys{margin:5px 0 2px;display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.riz-keys kbd{font-size:13px;padding:2px 8px;min-width:24px;text-align:center}
+.riz-keys i{font-style:normal;opacity:.7}.riz-keys span{font-size:13px;opacity:.85}
+.riz-combos{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:10px}
+.riz-combo{background:#0f1515cc;border:1px solid #8a744855;border-radius:6px;padding:10px 12px}
+.riz-combo b{display:block;font:600 16px Georgia,serif;color:#f1e3bd}.riz-combo small{opacity:.85;font-size:14px}
+
+/* Ravijojla flying at the viewer */
+#vila-flyby{position:fixed;left:50%;top:42%;width:300px;height:300px;margin:-150px 0 0 -150px;pointer-events:none;z-index:35;opacity:0;
+ background:url(assets/world/vila-spreda.webp) 0 0/800% 100% no-repeat;filter:drop-shadow(0 0 18px #9dffd855)}
+#vila-flyby.go{animation:vilaFly 2s cubic-bezier(.4,0,.8,.6) forwards,vilaFrames .62s steps(8) infinite}
+@keyframes vilaFrames{to{background-position:114.2857% 0}}
+@keyframes vilaFly{0%{opacity:0;transform:translate(60px,-90px) scale(.18)}14%{opacity:1}62%{opacity:1;transform:translate(0,10px) scale(1.5)}100%{opacity:0;transform:translate(-40px,160px) scale(3.2)}}
+
+/* blood on the lens */
+#krv-ekran{position:fixed;inset:0;pointer-events:none;z-index:20;overflow:hidden}
+#krv-ekran i{position:absolute;background:center/contain no-repeat;opacity:0;animation:krvEkran 3.3s ease-out forwards;mix-blend-mode:multiply}
+#krv-ekran i.blob{background:radial-gradient(circle at 50% 45%,#6a0609e0 0 18%,#7a070bb0 26%,transparent 34%),radial-gradient(circle at 30% 70%,#6a0609b0 0 6%,transparent 8%),radial-gradient(circle at 72% 28%,#6a0609b0 0 5%,transparent 7%)}
+@keyframes krvEkran{0%{opacity:0;transform:scale(.55)}5%{opacity:.9;transform:scale(1)}65%{opacity:.75;transform:translateY(14px)}100%{opacity:0;transform:translateY(46px)}}
+
+/* ---------- the pause: a campfire scene beside Codex's carved frame ---------- */
+#pause-menu.pauza{background:radial-gradient(ellipse at 50% 60%,#0a0f0ec4,#030505f0);backdrop-filter:blur(4px)}
+.pauza-wrap{display:flex;align-items:center;justify-content:center;gap:36px;max-width:96vw}
+.pauza-scena{margin:0;position:relative;width:min(580px,46vw);aspect-ratio:3/2;border-radius:6px;overflow:hidden;box-shadow:0 0 0 2px #7a5c34,0 0 0 7px #1e150d,0 0 0 9px #6a5230,0 22px 46px #000d;animation:pauzaScena .6s cubic-bezier(.2,.8,.2,1) both}
+.pauza-logor{position:absolute;inset:0;background:url(assets/world/pauza-logor.webp) 0 0/1600% 100% no-repeat;animation:pauzaVatra 1.6s steps(16) infinite}
+@keyframes pauzaVatra{to{background-position:106.6667% 0}}
+.pauza-iskre i{position:absolute;bottom:20%;left:47%;width:3px;height:3px;border-radius:50%;background:#ffb860;box-shadow:0 0 4px #ff8a30;opacity:0;animation:pauzaIskra 2.6s linear infinite}
+.pauza-iskre i:nth-child(2){left:49%;animation-delay:.35s;animation-duration:2.2s}.pauza-iskre i:nth-child(3){left:51%;animation-delay:.8s}
+.pauza-iskre i:nth-child(4){left:46%;animation-delay:1.2s;animation-duration:3s}.pauza-iskre i:nth-child(5){left:50%;animation-delay:1.6s}
+.pauza-iskre i:nth-child(6){left:48%;animation-delay:2s;animation-duration:2.4s}.pauza-iskre i:nth-child(7){left:52%;animation-delay:.6s;animation-duration:3.2s}
+@keyframes pauzaIskra{0%{opacity:0;transform:translate(0,0)}12%{opacity:.95}70%{opacity:.6}100%{opacity:0;transform:translate(18px,-170px)}}
+.pauza-scena figcaption{position:absolute;left:0;right:0;bottom:0;padding:26px 18px 12px;background:linear-gradient(transparent,#050807e6);text-align:left}
+.pauza-scena figcaption b{display:block;font:600 19px Georgia,serif;color:#f1e3bd;letter-spacing:.5px}
+.pauza-scena figcaption small{color:#c9b98f;font-size:14px}
+.pauza-ram{position:relative;height:min(90vh,690px);width:auto;max-width:46vw;aspect-ratio:900/1180;background:url(assets/world/pauza-ram.webp) center/100% 100% no-repeat;padding:15% 13% 11%;display:flex;flex-direction:column;padding-bottom:15.5%;filter:drop-shadow(0 22px 34px #000c);animation:pauzaRam .6s cubic-bezier(.2,.8,.2,1) both}
+.pauza-ram .eyebrow{margin:0;text-align:center;color:#d9b56a;font-size:11px;letter-spacing:4px}
+.pauza-ram h2{margin:2px 0 2px;text-align:center;font:700 30px Georgia,serif;line-height:1.1;color:#f3dfae;text-shadow:0 2px 0 #1a120a}
+.pauza-ram .pauza-note{margin:0 0 10px;text-align:center;color:#cbbd98;font-size:14px}
+.pauza-dugmad{display:flex;flex-direction:column;gap:6px;margin-top:auto}
+.pauza-dugmad button{all:unset;box-sizing:border-box;cursor:pointer;height:38px;margin:0 -8px;display:flex;align-items:center;justify-content:center;font:600 16px Georgia,serif;color:#f1e3bd;text-shadow:0 1px 2px #000;
+ white-space:nowrap;border-style:solid;border-width:0 30px;border-image:url(assets/world/dugme-ploca.webp) 0 110 fill/0 38px stretch;transition:transform .12s,color .12s;animation:pauzaDugme .45s cubic-bezier(.2,.8,.2,1) both}
+.pauza-dugmad button.pad-focus,.pauza-dugmad button:focus-visible{outline:none!important;box-shadow:none!important;background:none!important;filter:none!important}
+.pauza-dugmad button:hover,.pauza-dugmad button:focus-visible,.pauza-dugmad button.pad-focus{border-image-source:url(assets/world/dugme-ploca-aktivno.webp);color:#fff4d6;transform:scale(1.035)}
+/* the buttons also carry .primary/.secondary, whose hover paints a teal box and an inset frame around the carved plate;
+   here only the plate changes, with a warm glow that follows its own outline */
+.pauza-dugmad button:not(.text-button):hover,.pauza-dugmad button:not(.text-button):focus-visible,.pauza-dugmad button:not(.text-button).pad-focus{background:none!important;box-shadow:none!important;outline:none!important;filter:drop-shadow(0 0 7px #e8b45a59)!important}
+.pauza-dugmad button.text-button{border:0;border-image:none;height:26px;font-size:15px;color:#d8c79d;opacity:.9}
+.pauza-dugmad button.text-button:hover,.pauza-dugmad button.text-button:focus-visible{color:#fff4d6;transform:none;text-decoration:underline}
+.pauza-dugmad button:nth-child(1){animation-delay:.18s}.pauza-dugmad button:nth-child(2){animation-delay:.23s}.pauza-dugmad button:nth-child(3){animation-delay:.28s}
+.pauza-dugmad button:nth-child(4){animation-delay:.33s}.pauza-dugmad button:nth-child(5){animation-delay:.38s}.pauza-dugmad button:nth-child(6){animation-delay:.43s}.pauza-dugmad button:nth-child(7){animation-delay:.48s}
+@keyframes pauzaScena{from{opacity:0;transform:translateX(-46px) scale(.97)}}
+@keyframes pauzaRam{from{opacity:0;transform:translateX(46px) rotate(1.2deg) scale(.97)}}
+@keyframes pauzaDugme{from{opacity:0;transform:translateY(10px)}}
+@media(max-width:900px){.pauza-scena{display:none}.pauza-ram{max-width:94vw}}
+@media(max-height:640px){.pauza-scena{width:auto;height:60vh}}
+@media(prefers-reduced-motion:reduce){.pauza-scena,.pauza-ram,.pauza-dugmad button{animation:none}}
+
+/* ---------- Controls and Settings in Codex's carved frames (DOPUNA-31) ----------
+   Both frames keep their own proportions: one scale factor --s (screen px per source px) sizes the frame and its borders,
+   so nothing stretches. The text scrolls inside the green felt, never over the wood. */
+#kontrole.modal,#settings.modal{background:radial-gradient(ellipse at 50% 60%,#0a0f0ec4,#030505f0);backdrop-filter:blur(4px)}
+.ram-kontrole{--s:min(92vh / 1000,96vw / 1500,1.1px);position:relative;width:calc(var(--s) * 1500);height:calc(var(--s) * 1000);
+ background:url(assets/world/ram-kontrole.webp) center/100% 100% no-repeat;filter:drop-shadow(0 22px 34px #000c);animation:pauzaRam .5s cubic-bezier(.2,.8,.2,1) both}
+.ram-tablica{position:absolute;left:37.1%;width:25.7%;top:2.6%;height:9.3%;display:flex;align-items:center;justify-content:center;margin:0;
+ font:700 calc(var(--s) * 46) Georgia,serif;color:#f3dfae;text-shadow:0 2px 0 #1a120a;white-space:nowrap;letter-spacing:1px}
+#kontrole .kontrole-card{position:absolute;left:calc(var(--s) * 112);right:calc(var(--s) * 111);top:calc(var(--s) * 153);bottom:calc(var(--s) * 122);
+ width:auto;max-height:none;padding:10px 22px 14px;background:none;border:0;outline:0;box-shadow:none;animation:none}
+#kontrole .kontrole-card::before,#kontrole .kontrole-card::after{display:none}
+#kontrole .kontrole-card>.eyebrow{text-align:center;margin:2px 0 0}
+#kontrole .kontrole-note{text-align:center}
+#kontrole .kontrole-box{background:#0b120bb3;border-color:#a8864f55}
+#settings .modal-card{--s:min(92vh / 1180,94vw / 900,.85px);width:calc(var(--s) * 900);height:calc(var(--s) * 1180);max-height:none;padding:6px 26px 18px;
+ background:none;box-shadow:none;outline:0;border-style:solid;border-width:calc(var(--s) * 183) calc(var(--s) * 105) calc(var(--s) * 116) calc(var(--s) * 106);
+ border-image:url(assets/world/ram-podesavanja.webp) 183 105 116 106 fill/calc(var(--s) * 183) calc(var(--s) * 105) calc(var(--s) * 116) calc(var(--s) * 106) stretch;
+ filter:drop-shadow(0 22px 34px #000c);animation:pauzaRam .5s cubic-bezier(.2,.8,.2,1) both}
+#settings .modal-card h2{text-align:center;margin:0 0 4px;font-size:32px}
+#settings .modal-card h2::after{margin:6px auto 2px}
+#settings .modal-card .eyebrow{text-align:center;margin:0}
+#settings .modal-card label{margin:12px 0;font:600 15px Georgia,serif;color:#e8dcb8}
+#settings .modal-card label.check{margin:8px 0}
+#settings .modal-card .small{font-size:12px;line-height:1.55;color:#bcb593}
+/* the carved slat for a choice: the native arrow gives way to the painted gold one */
+#settings select{appearance:none;-webkit-appearance:none;height:auto;aspect-ratio:640/72;padding:0 9% 0 10%;margin-top:6px;border:0;border-radius:0;
+ background:url(assets/world/polje-izbor.webp) center/100% 100% no-repeat;color:#f1e3bd;font:600 15px Georgia,serif;text-shadow:0 1px 2px #000;cursor:pointer}
+#settings select option{background:#21160d;color:#f1e3bd}
+#settings select:focus-visible,#settings select.pad-focus{outline:none;filter:drop-shadow(0 0 6px #e8b45a80)}
+/* the slider: a groove in the wood and a gold rosette */
+#settings input[type=range]{-webkit-appearance:none;appearance:none;height:26px;margin-top:4px;background:none;cursor:pointer}
+#settings input[type=range]::-webkit-slider-runnable-track{height:16px;background:url(assets/world/klizac-staza.webp) center/100% 100% no-repeat;border:0}
+#settings input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-5px;border:0;background:url(assets/world/klizac-dugme.webp) center/contain no-repeat;filter:drop-shadow(0 2px 2px #000a)}
+#settings input[type=range]::-moz-range-track{height:16px;background:url(assets/world/klizac-staza.webp) center/100% 100% no-repeat;border:0}
+#settings input[type=range]::-moz-range-thumb{width:26px;height:26px;border:0;border-radius:0;background:url(assets/world/klizac-dugme.webp) center/contain no-repeat}
+#settings input[type=range]:focus-visible,#settings input[type=range].pad-focus{outline:none;filter:drop-shadow(0 0 6px #e8b45a80)}
+#settings input[type=checkbox]{accent-color:#c99a48}
+/* the close button is the same carved plate as the pause buttons */
+#kontrole #kontrole-close,#settings #settings-close{all:unset;box-sizing:border-box;cursor:pointer;display:flex;width:100%;height:40px;margin-top:10px;align-items:center;justify-content:center;
+ font:600 16px Georgia,serif;color:#f1e3bd;text-shadow:0 1px 2px #000;border-style:solid;border-width:0 30px;border-image:url(assets/world/dugme-ploca.webp) 0 110 fill/0 40px stretch;transition:transform .12s}
+#kontrole #kontrole-close:hover,#kontrole #kontrole-close:focus-visible,#kontrole #kontrole-close.pad-focus,#settings #settings-close:hover,#settings #settings-close:focus-visible,#settings #settings-close.pad-focus{border-image-source:url(assets/world/dugme-ploca-aktivno.webp);color:#fff4d6;transform:scale(1.03);filter:drop-shadow(0 0 7px #e8b45a59)}
+#kontrole #kontrole-close{width:280px;margin:10px auto 2px}
+#kontrole .kontrole-card,#settings .modal-card{scrollbar-width:thin;scrollbar-color:#a8864f #0000}
+@media(prefers-reduced-motion:reduce){.ram-kontrole,#settings .modal-card{animation:none}}
+
+/* ---------- the hero card, clearer: a thick health bar with its number, flasks for wine, icons by the meters ---------- */
+#hud .hero-card{padding:12px 20px 13px 12px;border-radius:8px;box-shadow:inset 0 0 0 1px #8a744899,0 8px 20px #0008;min-width:360px}
+#hud .hero-label{font:700 12px Georgia,serif;letter-spacing:3px;margin-bottom:7px;color:#f1e3bd}
+#hud .meter{position:relative;width:230px;height:16px;padding:2px;border-radius:4px;background:#070f0e;border:1px solid #a88c55}
+#hud .meter i{border-radius:2px;background:linear-gradient(180deg,#e2614c,#a02a26 60%,#7a1c1e)}
+#hud #hp-text{position:absolute;inset:0;display:grid;place-items:center;font:700 11px Georgia,serif;color:#fff1d6;text-shadow:0 1px 2px #000,0 0 3px #000}
+#hud .resources{gap:12px;margin-top:9px;font-size:12px}
+#hud #wine{display:flex;gap:3px}
+#hud #wine .cutura{width:22px;height:22px}
+#hud #wine .cutura.prazna{filter:grayscale(1) brightness(.45);opacity:.6}
+#hud #coins{font:700 13px Georgia,serif}
+#hud .hud-ico{width:18px;height:18px;vertical-align:middle;margin-right:5px}
+#hud .fairy-label{display:flex;align-items:center;font-size:10px;letter-spacing:1px}
+#hud .fairy-meter{width:64px;height:6px;border-radius:3px;background:#173d38;overflow:hidden}
+#hud .combat-meters{gap:16px;margin-top:9px;font-size:10px;align-items:center}
+#hud .combat-meters>div{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+#hud .mini-meter{width:86px;height:5px;border-radius:3px;overflow:hidden}
+/* quieter HUD: the key legend steps back while someone speaks, and after the first half minute of a pohod */
+#game-shell:has(#dialogue:not([hidden])) #controls{opacity:0}#controls.tiho{opacity:0}
+/* megdan: the duel takes the top of the screen; the quest line steps aside, so the words over the fighters stay clear */
+#game-shell:has(#boss-hud:not([hidden])) .quest{display:none}
+@media(min-width:901px){#game-shell:has(#boss-hud:not([hidden])) #boss-hud{top:22px;left:max(50%,720px)}#game-shell:has(#boss-hud:not([hidden])) #toast{top:150px}}
+@media(max-width:600px){#game-shell:has(#boss-hud:not([hidden])) #boss-hud{top:84px}#game-shell:has(#boss-hud:not([hidden])) #toast{top:190px}}
